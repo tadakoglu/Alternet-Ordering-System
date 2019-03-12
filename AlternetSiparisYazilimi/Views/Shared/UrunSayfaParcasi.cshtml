@@ -1,0 +1,82 @@
+﻿@model Urun
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    
+*@
+@{
+
+}
+<style>
+    button:hover .sepetLogo {
+        padding-top: 20px;
+        padding-left:20px;
+    }
+    .gecis {
+        background-color: aliceblue;
+        -webkit-transition: background-color 3s;
+        -moz-transition: background-color 3s;
+        transition: background-color 3s;
+    }
+    .gecis:hover{
+        background-color:antiquewhite
+    }
+    tr:hover {
+        /*when hovering an item:*/
+        background-color:aliceblue;
+        -moz-transition: background-color linear 0.2s;
+        -webkit-transition: background-color linear 0.2s;
+        transition: background-color linear 0.2s;
+    }
+
+</style>
+<tr>
+    <td>
+
+        @if (Model.UrunResmi != null)
+        {
+        <div class="pull-left">
+            <img height="50" width= "50" src="@Url.Action("resmiGetir", "Urun", new { id = 1 })" alt="Ürün Resmi" />
+        </div>
+        }
+    </td>
+    
+    <td style="width:5px">
+        <h6>@Model.UrunID</h6>
+    </td>
+    <td>
+        <h6>@Model.Isim</h6>
+    </td>
+    <td class="card-text p-1">
+        @Model.Aciklama
+    </td>
+    <td class="badge badge-pill badge-default">
+
+        <h6>@Model.Fiyat@ViewData["ParaBirimi"] </h6>
+    </td>
+    <td>
+        <h6>@Model.Kategorisi</h6>
+    </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    <td>
+       
+     
+        <form asp-action="SepeteEkle" asp-controller="Sepet" method="post">
+            <input type = "hidden" asp-for= "@Model.UrunID" /> @*Ürün ID değerini gönderebilmek için *@
+            <input type = "hidden" name = "ReturnURL" value = "@ViewContext.HttpContext.Request.URLAdresYoluVeSorguIfadesiniGetir()" /> @*Burada sepet sayfasındaki "geri dön" butonunun ve de sepet'e ekleme yapıldıktan sonra gidilecek URL adresi depolanıyor *@
+            <div style="border-radius: 100px; background-color:white; color:crimson; max-height:50px;" class="menuBtnYeni2Checked">
+                <span style="font: bold 12px Arial; color:black">Adet:</span>
+                <input name="Adet" value="1" style="width:25px; border-radius: 5px;" class="table-bordered" />
+                <button style="border-radius: 55px;" class="btn btn-danger btn-sm" type="submit">
+                    <img class="sepetLogo" src="~/resimler/sepet.png" width="20" height="20" /> Sepet'e Ekle
+                </button>
+
+            </div>
+
+        </form>
+    </td>
+</tr>
+

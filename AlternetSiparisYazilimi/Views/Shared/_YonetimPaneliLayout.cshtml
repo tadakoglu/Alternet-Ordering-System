@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/jpg" href="~/resimler/minilogoTrans.png">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <style>
+        .input-validation-error {
+            border-color: ghostwhite;
+            background-color: #fee;
+        }
+    </style>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @RenderSection("Scripts", false) @* false olarak atamazssak layout'u kullanan tüm view'lerde @section Scripts tanımlı olmak zorunda olacaktı. biz veri doğrulamayı sadece bazı yerlerde kullanacağız*@
+
+</head>
+
+<body style="padding-left:5%; padding-right:5%">
+    @* margin 3 padding 3%*@
+    <div style="display: inline-block; width:100%; background-color:azure">
+        <div style="float:left; color: white; padding-right:10px" class="badge-danger  text-capitalize text-center navbar-text"><h5> @ViewData["Title"]</h5></div>
+        <div style="float:left; color: white; padding-right:10px" class="badge-default  text-capitalize text-center navbar-text"><h5> > </h5></div>
+        <div style="float:left; color: white; padding-right:10px; opacity:0.8" class="badge-danger  text-capitalize text-center navbar-text"><h5> @ViewData["SubTitle"]</h5></div>
+        <a style="float:right" asp-action="Listele" asp-controller="Urun" class="btn btn-secondary m-2">Oturumu Kapat</a>
+    </div>
+    @if (TempData["Bilgi"] != null)
+    {
+        <div class="alert alert-info">@TempData["Bilgi"]</div>
+    }
+    @RenderBody()
+    <footer style="margin-bottom:75px; height:50px; text-align:center; font-family: 'Microsoft Sans Serif';">  <br />Telif Hakkı © 2019, Alternet Yazılım Ltd., Tüm Hakları Saklıdır.<br /><span style="font-size:13px; color:rosybrown">ASP.NET Core MVC 2, Entity Framework Core, C#, HTML5, CSS3, Bootstrap, JQuery UI, JQuery AJAX ve SQL Server Express kullanılmıştır. <br /><a target="_blank" href="https://www.linkedin.com/in/tadakoglu/">Geliştirici: Tayfun ADAKOĞLU || Linkedin Profile</a></span></footer>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+﻿@model SepetIndexViewModel
+
+@{
+    ViewData["Title"] = "Alışveriş Sepetiniz";
+}
+<style>
+    .xxxx {
+        /*when hovering an item:*/
+        background-color: cadetblue;
+        -moz-transition: background-color linear 0.2s;
+        -webkit-transition: background-color linear 0.2s;
+        transition: background-color linear 0.2s;
+    }
+</style>
+<h5 class="navbar-brand" style="margin-left:10px; margin-top:15px; ">@ViewData["Title"]</h5>
+
+
+<table class="table table-bordered table-hover ">
+
+    <thead>
+
+        <tr style="background-color:darkslateblue; color:white; height:5px">
+            <th></th>
+            <th>#</th>
+            <th>Ürün</th>
+            <th>Açıklama</th>
+            <th>Fiyat</th>
+            <th>Fiyat x Adet</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @*Sepet içerik IEnumerable<SepetSatiri> dizisini barındırmakdır. *@
+        @foreach (SepetSatiri satir in Model.Sepet.SepetIcerik)
+        {
+            <tr>
+                <td>
+                    @if (satir.Urun.UrunResmi != null)
+                    {
+                        <div class="pull-left">
+                            <img height="50" width="50" src="@Url.Action("resmiGetir", "Urun", new { id = 1 })" alt="Ürün Resmi" />
+                        </div>
+                    }                            
+                </td>
+                <td>@satir.Urun.UrunID</td>
+                <td>@satir.Urun.Isim</td>
+                <td>@satir.Urun.Aciklama</td>
+                <td>@satir.Urun.Fiyat</td>
+                <td>@(satir.Urun.Fiyat * satir.Adet)</td>
+                <td>
+                    Adet
+                    <input disabled name="name" style="width:25px; border-radius: 2px; display:inline-block;" class="table-bordered"  value="@satir.Adet" />
+                    <div style="display:inline-block; vertical-align:middle">
+                        <form asp-action="AdetAttir" method="post">
+                            <input type="hidden" name="UrunID" value="@satir.Urun.UrunID" />
+                            @*<input type="hidden" name="ReturnURL" value="@Model.ReturnURL" />*@
+                            <button type="submit" style="border-radius: 0px;" class="btn btn-outline-info btn-sm">
+                                &uarr;
+                            </button>
+                        </form>
+                        <form asp-action="AdetAzalt" method="post">
+                            <input type="hidden" name="UrunID" value="@satir.Urun.UrunID" />
+                            <input type="hidden" name="ReturnURL" value="@Model.ReturnURL" />
+                            <button type="submit" style="border-radius: 0px;" class="btn btn-outline-info btn-sm">
+                                &darr;
+                            </button>
+                        </form>
+                    </div> &emsp;
+                    <div style="display:inline-block; vertical-align:middle">
+                        <form asp-action="SepettenKaldir" method="post">
+                            <input type="hidden" name="UrunID" value="@satir.Urun.UrunID" />
+                            <input type="hidden" name="ReturnURL" value="@Model.ReturnURL" />
+                            <button type="submit" style="border-radius: 22px;" class="btn btn-danger btn-sm">
+                                Sepetten Çıkar
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+<div class="float-left" style="margin-top:-10px; margin-left:10px; display:inline-block">
+    <a href="@Url.Action("Listele","Urun")" style="border-radius: 22px;" class="btn btn-outline-primary">
+        Geri Dön
+    </a>
+</div>
+@{
+    int adet = 0;
+    Sepet s = ViewContext.HttpContext.Session.GetJson<Sepet>("Sepet");
+    if (s == null)
+    {
+        adet = 0;
+    }
+    else if (s != null && s.SepetIcerik.Count() == 0)
+    {
+        adet = 0;
+    }
+    else
+    {
+        adet = s.SepetIcerik.Count();
+    }
+    if (adet == 0)
+    {
+    <span style="font:18px tahoma bold; margin-left:10px">Şu an sepetinizde hiçbir ürün bulunmamaktadır.</span>
+    }
+    else
+    {
+        @*SiparisiVer get metodunu çağır*@
+        <div  class="float-right" style="margin-top:-10px; margin-left:10px; display:inline-block">
+            <a asp-action="SiparisiVer" asp-controller="Siparis" class="float-right btn  btn-outline-primary" style="border-radius: 55px; display:inline-block; margin-right:10px; ">
+            <img class="sepetLogo" src="~/resimler/sepet.png" width="18" height="18" />Siparişi Ver
+            </a>
+        </div>
+        
+
+       
+    }
+}

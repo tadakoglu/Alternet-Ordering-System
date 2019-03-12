@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/jpg" href="~/resimler/minilogoTrans5.png">
+    <link asp-href-include="/lib/bootstrap/dist/**/*.min.css" rel="stylesheet" /> @*asp-href-include ** kullanmamıza olanak verdi.*@
+    <link asp-href-include="/lib/menu_css.css" rel="stylesheet" />
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    @*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+    @*<script src="~/AlternetJS/AJAXFonksiyonlari.js"></script>*@
+    <script>//KATEGORİ FİLTRELEME JQUERY AJAX İSTEKLERİ, ONCHANGE >> LOAD
+
+$(document).ready(function () {
+    $("#Kategori").change(function () {
+        var kategori = $("#Kategori").val();
+        kategori = kategori.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluklu olarak bir değişken ile istek(query) yapıldığında( Soğuk Algınlığı gibi) dönüşüm JQUERY ile otomatik yapılmıyor.
+        //alert(kategori); // Test et.
+        $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Kategori=' + kategori);
+        //Tüm ürünler seçilidğinde "" null değeri gönderilir ve bu Controller(ya da Web API) fonksiyonları tarafından algılanarak tüm ürünler olarak sorgu yapılır.
+    });
+});
+        //SAYFALAYICI JQUERY AJAX İSTEKLERİ ONCLICK >> LOAD
+        //@* $(document).ready(function () {
+        //    $(".SayfaLinki").click(function () {
+        //        var sayfa = $(this).html();
+        //        // sayfa = sayfa.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluk olarak istek yapıldığında dönüşüm JQUERY ile otomatik yapılmıyor.
+        //        alert(sayfa); // Test et.
+        //        $("#urunListesi").load('@(Url.Action("JQueryAjaxListele", "Urun"))?SayfaNo=' + sayfa);
+        //        //Tüm ürünler seçilidğinde "" null değeri gönderilir ve bu Controller(ya da Web API) fonksiyonları tarafından algılanarak tüm ürünler olarak sorgu yapılır.
+        //    });
+        //});*@
+
+             //SAYFALAYICI VERSIYON 2 JQUERY AJAX İSTEKLERİ ONCLICK >> LOAD
+            //SayfalayiciHTMLRendererHelper sınıfı ÜZERİNDE  yeniLink.Attributes.Add("onclick", "SayfayaGit("+sayfa+")"); İLE BAŞARILDI
+
+                var SayfayaGit = function (sayfaNo, kategori) {
+    kategori = kategori.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluk olarak istek yapıldığında dönüşüm JQUERY ile otomatik yapılmadığı için boş sonuç döner.
+    //alert(kategori); // Test et. Başarılı
+    $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Kategori=' + kategori + '&SayfaNo=' + sayfaNo);
+    //Tüm ürünler seçilidğinde "" null değeri gönderilir ve bu Controller(ya da Web API) fonksiyonları tarafından algılanarak tüm ürünler olarak sorgu yapılır.
+}
+
+
+
+//ARAMA KUTUCUĞU JQUERY AJAX INPUT EVENT(herhangi bir değer girilmesi VE DE SİLİNMESİ DAHİL) >> LOAD
+
+$(document).ready(function () {
+    $("#aramaKutucugu").bind('input', function () {
+        var aranacakDeger = $("#aramaKutucugu").val();
+        // sayfa = sayfa.replace(/\s+/g, '%20') // Bu ifade boşlukları %20 ile değiştirir. Aksi halde boşluk olarak istek yapıldığında dönüşüm JQUERY ile otomatik yapılmıyor.
+
+        $("#urunListesi").html('<div class="YukleDiv"><img class="yukleniyorGif" src="yukleniyor.gif"/><span class="yukleniyorYazisi">Yükleniyor</span></div>').load('@(Url.Action("JQueryAjaxListele", "Urun"))?Arama=' + aranacakDeger);
+
+    });
+
+
+        });
+    </script>
+    @RenderSection("Scripts", false) @* false olarak atamazssak layout'u kullanan tüm view'lerde @section Scripts tanımlı olmak zorunda olacaktı. biz veri doğrulamayı sadece bazı yerlerde kullanacağız*@
+
+    <title>Alternet | İlaç Sipariş </title>
+    <style>
+
+        #inp1:hover {
+            border-color: indigo;
+        }
+
+        .yukleniyorGif {
+            display: inline-block
+        }
+
+        .yukleniyorYazisi {
+            vertical-align: central;
+            display: inline-block;
+            font: bold;
+            padding-left: 5px;
+            padding-top: 10px;
+            opacity: 0.9;
+            -webkit-transition: opacity 0.5s ease-in-out;
+            -moz-transition: opacity 0.5s ease-in-out;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .YukleDiv {
+            padding-top: 100px;
+            padding-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="float:left; position:absolute; top:30px;">
+
+    </div>
+    <div style="padding-left:12%; padding-right:12%; ">
+        <nav>
+            <div id="categories" style="float:left; position:absolute; top:0px; ">
+                <a href="@Url.Action(controller: "Urun", action:"Listele")" style="text-decoration:none;">
+                    <img src="~/resimler/mainLogo-256x120.png" href="#" alt="Alternet" style="height:40px; vertical-align:top; " /><img />
+                </a>
+                @await Component.InvokeAsync("NavigationMenu")
+                &emsp;
+                @await Component.InvokeAsync("Sepet")
+
+
+            </div>
+        </nav>
+        @*controller değeri sepet ise arama kutucuğunu gizle*@
+        @if (ViewContext.RouteData.Values["controller"].ToString() == "Urun")
+        {
+            @await Component.InvokeAsync("Arama");
+        }
+
+
+        <div style="-webkit-box-shadow: 0px -1px 6px 1px rgba(77,77,77,0.28); -moz-box-shadow: 0px -1px 6px 1px rgba(77,77,77,0.28); box-shadow: 0px -1px 6px 1px rgba(77,77,77,0.28); margin-top:40px; -webkit-border-bottom-right-radius: 30px; -webkit-border-top-left-radius: 30px; margin-top:45px  ">
+            <div id="urunListesi">
+
+                @RenderBody()
+
+
+                @*burası Partial View ile de yapılabilir*@
+            </div>
+            @*controller değeri sepet ise kategori filtreleyiciyi gizle*@
+            @if (ViewContext.RouteData.Values["controller"].ToString() == "Urun")
+            {
+                <div id="filtreBolumu" style="float:right; margin-top:-30px; margin-right:15px">
+                    <form method="post">
+                        <span>Kategori Filtrele</span>
+                        <select name="Kategori" id="Kategori" asp-items="@ViewData["KategoriFiltreleMenusu"] as SelectList" style="background-color:white; color:black" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <option value="">Tüm Ürünler</option>
+                        </select>
+                    </form>
+                </div>
+            }
+
+
+            <footer style="margin-top: -20px; padding-top:30px; padding-bottom:10px; margin-bottom:10px; height:50px; text-align:center; font-family: 'Microsoft Sans Serif';">  <br />Telif Hakkı © 2019, Alternet Yazılım Ltd., Tüm Hakları Saklıdır.<br /><span style="font-size:13px; color:rosybrown">ASP.NET Core MVC 2, Entity Framework Core, C#, HTML5, CSS3, Bootstrap, JQuery UI, JQuery AJAX ve SQL Server Express kullanılmıştır. <br /><a target="_blank" href="https://www.linkedin.com/in/tadakoglu/">Geliştirici: Tayfun ADAKOĞLU || Linkedin Profile</a></span></footer>
+            @if (ViewContext.RouteData.Values["controller"].ToString() == "Urun")
+            {
+                <a asp-controller="Yonetim" asp-action="Index" style="text-decoration:none " class="btn btn-outline-danger float-right"><h6>Yönetim<br />Paneli</h6></a>
+            }
+
+        </div>
+    </div>
+
+
+  
+</body>
+
+</html>

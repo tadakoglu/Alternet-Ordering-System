@@ -1,0 +1,43 @@
+﻿@model UrunlerViewModel
+
+@{
+    ViewData["Title"] = "İlaç Ürünlerimiz";
+}
+
+
+<h5 class="navbar-brand" style="margin-left:10px; margin-top:15px; ">@ViewData["Title"]</h5>
+<table class="table">
+    <thead>
+        <tr style="background-color:darkslateblue; color:white; height:5px">
+            <th></th>
+            <th>
+                <h6>#</h6>
+            </th>
+            <th>
+                <h6>@Html.DisplayNameFor(model => model.urunler.First().Isim)</h6>
+            </th>
+            <th>
+                <h6>@Html.DisplayNameFor(model => model.urunler.First().Aciklama)</h6>
+            </th>
+            <th>
+                <h6>@Html.DisplayNameFor(model => model.urunler.First().Fiyat)</h6>
+            </th>
+            <th>
+                <h6>@Html.DisplayNameFor(model => model.urunler.First().Kategorisi)</h6>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Urun oge in Model.urunler)
+        {
+
+            @Html.Partial("UrunSayfaParcasi", oge);
+        }
+
+        
+    </tbody>
+</table>
+
+<div style="margin-left:5px" Sayfalayici-Renderer-Model="@Model.sayfalayici" Kategori-Model="@Model.Kategorim" Sayfa-Css-Class-Normal="btn-secondary" Sayfa-Css-Class-Secildi="btn-primary" class="btn-group"></div>
+

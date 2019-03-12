@@ -1,0 +1,75 @@
+﻿* {
+    -webkit-transition-property: all;
+    -webkit-transition-duration: .2s;
+    -moz-transition-timing-function: cubic-bezier(100,50,21,6);
+    -moz-transition-property: all;
+    -moz-transition-timing-function: cubic-bezier(100,50,21,6);
+}
+
+
+.menuBtnYeni2 {
+    color: #ffffff;
+    background: rgb(70, 70, 70);
+    padding: 8px 15px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    font-family: Tahoma
+}
+
+.menuBtnYeni2:hover {
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    background: #fff;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 12px 15px;
+    color: #1b1b1b;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+}
+
+.menuBtnYeni2Checked {
+    border: none;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    background: rgba(0, 0, 0, 0.4);
+    background: #fff;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 12px 15px;
+    color: #1b1b1b;
+    text-decoration: none;
+}
+.menuBtnYeni2Checked:hover {
+        border: none;
+        background: rgba(0, 0, 0, 0.4);
+        background: #fff;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -webkit-border-bottom-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 12px 15px;
+        color: #1b1b1b;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+    }
+

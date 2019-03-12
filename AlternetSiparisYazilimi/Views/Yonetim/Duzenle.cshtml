@@ -1,0 +1,70 @@
+﻿@model AlternetSiparisYazilimi.Models.Urun
+
+@{
+    ViewData["Title"] = "Yönetim Paneli";
+    if (ViewContext.RouteData.Values["action"].ToString() == "UrunOlustur")
+    {
+        ViewData["SubTitle"] = "Ürün Oluştur";
+
+    }
+    else
+    {
+        ViewData["SubTitle"] = "Ürün'ü Düzenle";
+    }
+
+
+    Layout = "~/Views/Shared/_YonetimPaneliLayout.cshtml";
+}
+@section Scripts{
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+  
+}
+<h4>Ürün</h4>
+<hr />
+<div class="row pl-1">
+    <div class="col-md-4">
+        <form asp-action="Duzenle">
+            @* model only dersen sadece ilgili kutucukların yanında hatalar gösterilir. all dersen tüm hatalar en tepede ayrıyeten gösterilir.*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UrunID" />
+            <div class="form-group">
+                <label asp-for="Isim" class="control-label"></label>
+                <input asp-for="Isim" class="form-control" />
+                <span asp-validation-for="Isim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Aciklama" class="control-label"></label>
+                <input asp-for="Aciklama" class="form-control" />
+                <span asp-validation-for="Aciklama"  class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+
+                <label asp-for="Fiyat" class="control-label"></label>(@System.Globalization.CultureInfo.CurrentCulture kültürü için ondalık sayı ayraçı "@System.Globalization.CultureInfo.CurrentUICulture.NumberFormat.CurrencyDecimalSeparator"dır)
+                @*<input asp-for="Fiyat" class="form-control" />*@
+                @* jquery obstrusive validasyon da lokaliasyon yapılmadığından . ve , den dolayı hatalı çalışan data-val-number veri sıfatını iptal etmek zorunda kaldım bu doğrulama aşağıdaki REGEX ifadesi ile başarıldı  *@
+                <input class="form-control" type="text" data-val="true" data-val-regex="Fiyat değeri bir sayı olmalıdır" data-val-regex-pattern="^(\d*\,)?\d+$"
+                       data-val-required="Lütfen bir fiyat belirtiniz"                                           
+                       id="Fiyat" name="Fiyat" value="@Model.Fiyat" />
+                <span asp-validation-for="Fiyat" class="text-danger"></span>
+
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Kategorisi" class="control-label"></label>
+                <input asp-for="Kategorisi" class="form-control" />
+                <div><span asp-validation-for="Kategorisi" class="text-danger"></span></div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+</div>
+

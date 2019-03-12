@@ -1,0 +1,105 @@
+{
+  "_args": [
+    [
+      "tether@^1.4.0",
+      "C:\\Users\\tadak\\source\\repos\\AlternetSiparisYazilimi\\AlternetSiparisYazilimi\\node_modules\\bootstrap"
+    ]
+  ],
+  "_from": "tether@>=1.4.0-0 <2.0.0-0",
+  "_hasShrinkwrap": false,
+  "_id": "tether@1.4.5",
+  "_inCache": true,
+  "_location": "/tether",
+  "_nodeVersion": "10.2.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/tether_1.4.5_1538077941995_0.2338105289159147"
+  },
+  "_npmUser": {
+    "email": "devteam@hubspot.com",
+    "name": "hs"
+  },
+  "_npmVersion": "6.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "tether",
+    "raw": "tether@^1.4.0",
+    "rawSpec": "^1.4.0",
+    "scope": null,
+    "spec": ">=1.4.0-0 <2.0.0-0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/bootstrap"
+  ],
+  "_resolved": "https://registry.npmjs.org/tether/-/tether-1.4.5.tgz",
+  "_shasum": "8efd7b35572767ba502259ba9b1cc167fcf6f2c1",
+  "_shrinkwrap": null,
+  "_spec": "tether@^1.4.0",
+  "_where": "C:\\Users\\tadak\\source\\repos\\AlternetSiparisYazilimi\\AlternetSiparisYazilimi\\node_modules\\bootstrap",
+  "authors": [
+    "Adam Schwartz <adam.flynn.schwartz@gmail.com>",
+    "Zack Bloom <zackbloom@gmail.com>"
+  ],
+  "bugs": {
+    "url": "https://github.com/HubSpot/tether/issues"
+  },
+  "dependencies": {},
+  "description": "A client-side library to make absolutely positioned elements attach to elements in the page efficiently.",
+  "devDependencies": {
+    "del": "^2.0.2",
+    "del-cli": "^0.2.0",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-babel": "^5.2.1",
+    "gulp-bump": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-header": "^1.7.1",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.4.3",
+    "gulp-wrap-umd": "^0.2.1"
+  },
+  "directories": {},
+  "dist": {
+    "fileCount": 86,
+    "integrity": "sha512-fysT1Gug2wbRi7a6waeu39yVDwiNtvwj5m9eRD+qZDSHKNghLo6KqP/U3yM2ap6TNUL2skjXGJaJJTJqoC31vw==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbrTT2CRA9TVsSAnZWagAA8mAP/A7d4CyEzusjnOnWUsKu\nNrO9900uRiw8l8Xlvr+UJwQxLzagEsTl+z9g/mx0DDtS8TAphlWez6BgsvsA\nlmWyMeAfFPiL3fLfPpD+HD8M6NJ5t58K5M21jdqlr0Xl90Lcf99U0fw8u4ck\n4wdEkWvXdPZMz4y4SCf+5Un/GrsXwim9HGMUBpWvSUL2fLAQBjmqZa7WjJkQ\nV8rjNSenhk39108RbM5qJd1QX0YC+F7Qu5K8ny4RY8+CtYia5X9FBSX5pfQU\nELJKwUwYdjYeCNNvBsT0sHi4h5aQLQGehWt5tugnLMY4Zm5hHTvaRcYhdZDx\nck1uGApPPI2V83Lt6iVgtUf5KV/6SNal2yqppk6TN2ZbuecnqsrQ0ywjRdPE\n06rBsezKDo3x8klBXqYk0mB/X40hXeX6zBy4gqcFmrveFbrWrG7DqPmLo9+D\nIjcyeYQSsd5McSEj9gYwMyaiJjQg0twCi9V+p1QFUHo2WCIYBP31Jj+Le73w\njcKDjcgbG2O9Yuzo/fb6e/e/i8JQ0s2KEje/9a76uRyDGYW8cwMFKd5pMWp+\nar1cHYqk/NKmLfj0+eVxlaiw2+9NJ0/tDh6/JAufPTvk/qjUOLfnGsQV7BXZ\nOZRQNGUN4IvIXi1EZvuNA3WGCoreakKjhekdYZyZe92yXHvkFQspuvLsGAhE\nz2LB\r\n=oYLN\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "8efd7b35572767ba502259ba9b1cc167fcf6f2c1",
+    "tarball": "https://registry.npmjs.org/tether/-/tether-1.4.5.tgz",
+    "unpackedSize": 1155592
+  },
+  "gitHead": "23ff7b761332313dc072df799fb15a35dde14bf4",
+  "homepage": "https://github.com/HubSpot/tether#readme",
+  "installable": true,
+  "license": "MIT",
+  "main": "dist/js/tether.js",
+  "maintainers": [
+    {
+      "name": "hs",
+      "email": "devteam@hubspot.com"
+    },
+    {
+      "name": "timmfin",
+      "email": "timmfin@timmfin.net"
+    },
+    {
+      "name": "zackbloom",
+      "email": "zackbloom@gmail.com"
+    }
+  ],
+  "name": "tether",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HubSpot/tether.git"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "reinstall": "del node_modules && npm install",
+    "watch": "gulp watch"
+  },
+  "version": "1.4.5"
+}

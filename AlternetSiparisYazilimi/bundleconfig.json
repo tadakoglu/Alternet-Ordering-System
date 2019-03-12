@@ -1,0 +1,9 @@
+[
+  {
+    "outputFileName": "wwwroot/AlternetJS/AJAX_VE_JQUERYUI_BUNDLE.js",
+    "inputFiles": [
+      "wwwroot/AlternetJS/AJAXFonksiyonlari.js",
+      "wwwroot/AlternetJS/JQUERYUI.js"
+    ]
+  }
+]

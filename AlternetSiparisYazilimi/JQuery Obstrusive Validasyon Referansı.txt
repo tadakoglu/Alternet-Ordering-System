@@ -1,0 +1,11 @@
+data-val="true": enable unobtrusive validation on this element (should be on every input element you want to validate)
+data-val-required="ErrMsg": makes the input required, and shows the ErrMsg
+data-val-length="ErrMsg", data-val-length-min="5", data-val-length-max="15": sets required string length and associated error message.
+data-val-number="ErrMsg": makes a field required to be a number.
+data-val-date="ErrMsg": requires a field to be a date (I do not recommend this, as it accepts too much – I prefer to use regex).
+data-val-equalto="ErrMsg", data-val-equalto-other="Fld": requires one field to match the other (such as password confirm. Fld is a jQuery selector
+data-val-regex="ErrMsg", data-val-regex-pattern="^regex$": Requires the field to match the regex pattern.
+data-val-email="ErrMsg": requires a field to be a email (I do not recommend this, as it accepts too much – I prefer to use regex).
+data-val-url="ErrMsg": requires a field to be a url (I do not recommend this, as it accepts too much – I prefer to use regex).
+
+https://stackoverflow.com/questions/11124880/jquery-unobtrusive-validation-attributes-reference
