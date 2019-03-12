@@ -12,10 +12,12 @@ JQuery UI, JQuery AJAX, XUnit Framework, Moq, Dependency Injection, SQL Server E
 "Server=YOUR_SERVER_ISTANCE_NAME_HERE;Database=AlternetSiparisVT;Trusted_Connection=True;MultipleActiveResultSets=true"
 
 ***TURKISH***
+**TEKNOLOJİ**
 Uygulama ASP.NET Core MVC 2, Entity Framework Core (Code First Teknikleri ile), C#, HTML5, CSS3, Bootstrap, 
 JQuery UI, JQuery AJAX, XUnit,Moq, Dependency Injection ve SQL Server Express teknolojileri kullanarak geliþtirilmiþtir. 
 MVVM kullanıldı.
 
+**CONNECTİON STRING AYARLARI KURULUMU**
 Uygulama SQL Server Ekspress ve SQL Server Local Db üzerinde düzgün çalıştığı test edilmiþtir. SQL Server diğer sürümleri üzerinde de çalışıyor.
 Uygulama "Connection String" değeri appsettings.json dosyası içinde belirtilmiştir. Bir adet SQL Server Express bir adet de 
 Local Db için string tanımladım. Varsayilan ayarlar "SQL Server" üzerinde çalışmasıdır. 
