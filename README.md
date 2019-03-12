@@ -1,7 +1,7 @@
 # AlternetOrderingSystem
 Includes the Alternet Online Medicine Ordering Software developed by ASP.NET Core MVC 2
 
-TECH STACK
+**TECH STACK**
 ASP.NET Core MVC 2, Entity Framework Core (Code First), C#, HTML5, CSS3, Bootstrap, 
 JQuery UI, JQuery AJAX, XUnit Framework, Moq, Dependency Injection, SQL Server Express, MVVM software architecture.
 
