@@ -3,10 +3,14 @@ npm install -g @angular/cli
 
 ng new yeni-uygulama
 cd yeni-uygulama
+
+ng build yeni-uygulama
+ng build --watch // any changes occuring in codes will invoke a build.
+
 ng generate library my-lib
-daha sonra ilgili kütüphane sınıflarını my-lib/src/lib altında oluştur
-ve mylib/src altındaki public-api.ts dosyasına dışarıya açıklacak(public sınıfları ilan et ki diğer projeler referansla bu kütüphaneye ulaşabilsin)
-export * from './lib/yeniSinif'; şeklinde ekleme yapıldı
+daha sonra ilgili kÃ¼tÃ¼phane sÃ½nÃ½flarÃ½nÃ½ my-lib/src/lib altÃ½nda oluÃ¾tur
+ve mylib/src altÃ½ndaki public-api.ts dosyasÃ½na dÃ½Ã¾arÃ½ya aÃ§Ã½klacak(public sÃ½nÃ½flarÃ½ ilan et ki diÃ°er projeler referansla bu kÃ¼tÃ¼phaneye ulaÃ¾abilsin)
+export * from './lib/yeniSinif'; Ã¾eklinde ekleme yapÃ½ldÃ½
 
 cd yeni-uygulama
 ng build my-lib
@@ -16,7 +20,7 @@ rm -r dist
 
 npm install bootstrap
 
-kütüphaneye içindeki bir sınıfa referans vermek
+kÃ¼tÃ¼phaneye iÃ§indeki bir sÃ½nÃ½fa referans vermek
 
 import * as hepsi from 'my-lib';
 degisken: any = new hepsi.tayfun();
@@ -29,21 +33,21 @@ angular.json after installing bootstrap via npm
 "node_modules/bootstrap/dist/css/bootstrap.min.css"
 ],
 
-uygulama içinde uygulama için (routing modulule dahil edilmiş şekilde)
+uygulama iÃ§inde uygulama iÃ§in (routing modulule dahil edilmiÃ¾ Ã¾ekilde)
 cd uygulamam
 ng generate application altUygulama --routing    
 
 
 ng serve --port 3000 --open  
 
-TERMİNALDE (NODE WEB SUNUCUSUNU DURDURMAK İÇİN-stopping node.js web server)
+TERMÃNALDE (NODE WEB SUNUCUSUNU DURDURMAK ÃÃ‡ÃN-stopping node.js web server)
 CTRL  + C ye bas. sonra Y(YES) onayla
 
 
 /*vs code eklentileri*/
 Angular Language Service by Angular (| uppercase pipe etc)
 Angular Files by Alexander Ivanichev (.ts creation)
-Angular 7 Snippets by Mikael Morlund ( tüm komutları adam kaydetmiş) hatırlamak için güzel bir yol.
+Angular 7 Snippets by Mikael Morlund ( tÃ¼m komutlarÃ½ adam kaydetmiÃ¾) hatÃ½rlamak iÃ§in gÃ¼zel bir yol.
 GitHub Pull Requests
 Debugger for Chrome
 Npm
