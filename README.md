@@ -28,3 +28,6 @@ Local Db için string tanımladım. Varsayilan ayarlar "SQL Server" üzerinde ç
 aşağıdaki gibi(Server=TADAKOGLU\\SQLEXPRESS olarak değil de Server=SunucuAdiniz) atamanız gerekmektedir.
 "Server=TADAKOGLU\\SQLEXPRESS;Database=AlternetSiparisVT;Trusted_Connection=True;MultipleActiveResultSets=true"
 
+
+dotnet-cli, ef-core-cli and angular-cli
+https://github.com/tadakoglu/Alternet-Ordering-System/wiki
