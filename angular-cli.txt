@@ -7,6 +7,8 @@ cd yeni-uygulama
 ng build yeni-uygulama
 ng build --watch // any changes occuring in codes will invoke a build.
 
+ng serve --port 3000 --open // That will not create build files in specified folder. It uses memory to store them!
+
 ng generate library my-lib
 daha sonra ilgili kütüphane sýnýflarýný my-lib/src/lib altýnda oluþtur
 ve mylib/src altýndaki public-api.ts dosyasýna dýþarýya açýklacak(public sýnýflarý ilan et ki diðer projeler referansla bu kütüphaneye ulaþabilsin)
