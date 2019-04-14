@@ -2,7 +2,11 @@ To Add EF Core Migration CLI Commands, open your .csproj file. To the just below
 //Add "<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />"
 //Run "dotnet restore" to install CliTool Nuget Package
 
-//POWERSHELL ‹ZER›NDE OR ON TERMINAL
+dotnet ef dbcontext scaffold "Server=TADAKOGLU\MSSQLSERVERTA;Database=AlternetToDo;Trusted_Connection=True;MultipleActiveResultSets=true" Microsoft.EntityFrameworkCore.SqlServer --context AlternetToDoSQLDbContext --output-dir Models
+
+dotnet ef dbcontext scaffold "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models -t Blog -t Post --context-dir Models/DbPersistanceLayer -c BlogContext
+
+//POWERSHELL √úZER√ùNDE OR ON TERMINAL
 //dotnet ef migrations add ilkGoc
 //dotnet ef migrations add ikinciGoc
 //dotnet ef database update : To create the database and apply the migrations
@@ -19,7 +23,7 @@ To Add EF Core Migration CLI Commands, open your .csproj file. To the just below
 //dotnet ef database drop --context VarsaBaskaBirContext --force  : To delete the database
 
 //http://www.entityframeworktutorial.net/efcore/cli-commands-for-ef-core-migration.aspx#migrations-list
-//not add, update, drop Áouna --context eklenebiliyor. Á¸nk¸ birden fazla context(veritaban˝) varsa context belirtimi migration/database komutlar˝nda zorunlu.
+//not add, update, drop √ßo√∞una --context eklenebiliyor. √ß√ºnk√º birden fazla context(veritaban√Ω) varsa context belirtimi migration/database komutlar√Ωnda zorunlu.
 
 //clean code first reference.
 https://www.entityframeworktutorial.net/code-first/configure-many-to-many-relationship-in-code-first.aspx
