@@ -29,5 +29,4 @@ aşağıdaki gibi(Server=TADAKOGLU\\SQLEXPRESS olarak değil de Server=SunucuAdi
 "Server=TADAKOGLU\\SQLEXPRESS;Database=AlternetSiparisVT;Trusted_Connection=True;MultipleActiveResultSets=true"
 
 
-dotnet-cli, ef-core-cli and angular-cli
 https://github.com/tadakoglu/Alternet-Ordering-System/wiki
