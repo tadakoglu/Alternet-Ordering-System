@@ -30,3 +30,6 @@ aşağıdaki gibi(Server=TADAKOGLU\\SQLEXPRESS olarak değil de Server=SunucuAdi
 
 **dotnet-cli, ef-core-cli**
 https://github.com/tadakoglu/Alternet-Ordering-System/wiki
+
+## License
+This project is subject to MIT License. https://github.com/tadakoglu/Alternet-To-Do/blob/master/License%20-%20MIT
