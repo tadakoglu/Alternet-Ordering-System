@@ -32,4 +32,4 @@ aşağıdaki gibi(Server=TADAKOGLU\\SQLEXPRESS olarak değil de Server=SunucuAdi
 https://github.com/tadakoglu/Alternet-Ordering-System/wiki
 
 ## License
-This project is subject to MIT License. https://github.com/tadakoglu/Alternet-To-Do/blob/master/License%20-%20MIT
+This project is subject to MIT License. https://github.com/tadakoglu/Alternet-Ordering-System/blob/master/LICENSE
